@@ -44,7 +44,7 @@ pub fn format_response(resp: Response, print_special: bool, pretty_format: bool)
     match resp {
         Response::Empty => pprint!(pretty_format, "(Okay)".cyan()),
         Response::Error(e) => {
-            println!("{}", format!("(server error code: {e})").red());
+            eprintln!("{}", format!("(server error code: {e})").red());
             return false;
         }
         Response::Value(v) => {
